@@ -4,7 +4,9 @@ import { useParams } from "react-router-dom";
 
 const JobDetails = () => {
   const { jobId } = useParams();
-  const { data, loading, error } = useFetch("http://localhost:3100/jobs");
+  const { data, loading, error } = useFetch(
+    "https://job-posting-app-one.vercel.app/jobs"
+  );
   const jobData = data?.find((job) => jobId === job._id);
 
   return (

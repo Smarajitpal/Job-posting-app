@@ -3,7 +3,9 @@ import useFetch from "./useFetch";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 function App() {
-  const { data, loading, error } = useFetch("http://localhost:3100/jobs");
+  const { data, loading, error } = useFetch(
+    "https://job-posting-app-one.vercel.app/jobs"
+  );
 
   const [job, setJob] = useState([]);
   if (job.length === 0 && data) {
@@ -23,9 +25,12 @@ function App() {
   };
   const handleDelete = async (jobId) => {
     try {
-      const response = await fetch(`http://localhost:3100/jobs/${jobId}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://job-posting-app-one.vercel.app/jobs/${jobId}`,
+        {
+          method: "DELETE",
+        }
+      );
       if (!response.ok) {
         throw "Failed to delete Job.";
       }
