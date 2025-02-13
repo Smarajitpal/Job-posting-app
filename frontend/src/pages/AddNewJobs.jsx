@@ -11,6 +11,7 @@ const AddNewJobs = () => {
     jobDescription: "",
     requiredQualification: "",
   });
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -35,7 +36,10 @@ const AddNewJobs = () => {
       }
 
       const data = await response.json();
-      console.log("Added job", data);
+      if (data) {
+        setSuccessMessage("Data Posted Successfully.");
+        window.location.reload();
+      }
     } catch (error) {
       console.log(error);
     }
@@ -116,6 +120,8 @@ const AddNewJobs = () => {
             Post Job
           </button>
         </form>
+        <br />
+        {successMessage && <p>{successMessage}</p>}
       </div>
     </>
   );
