@@ -121,7 +121,7 @@ const AddNewJobs = () => {
           </button>
         </form>
         <br />
-        {successMessage && <p className="bg-success">{successMessage}</p>}
+        {successMessage && <p className="py-3 bg-success">{successMessage}</p>}
       </div>
     </>
   );
