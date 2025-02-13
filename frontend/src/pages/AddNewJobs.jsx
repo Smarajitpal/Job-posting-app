@@ -37,7 +37,7 @@ const AddNewJobs = () => {
 
       const data = await response.json();
       if (data) {
-        setSuccessMessage("Data Posted Successfully.");
+        setSuccessMessage("Job Posted Successfully.");
         window.location.reload();
       }
     } catch (error) {
@@ -121,7 +121,7 @@ const AddNewJobs = () => {
           </button>
         </form>
         <br />
-        {successMessage && <p>{successMessage}</p>}
+        {successMessage && <p className="bg-success">{successMessage}</p>}
       </div>
     </>
   );
